@@ -148,3 +148,21 @@ export function CloseIcon({ className = 'h-3.5 w-3.5' }: IconProps) {
     </svg>
   );
 }
+
+export function CloudRainIcon({ className = 'h-3.5 w-3.5' }: IconProps) {
+  return (
+    <svg viewBox="0 0 24 24" className={className} {...base}>
+      <path d="M7 18h10a4 4 0 0 0 .8-7.92A6 6 0 0 0 6.1 11.4 3.5 3.5 0 0 0 7 18Z" />
+      <path d="M9 21l1-2M13 21l1-2M11 23l1-2" />
+    </svg>
+  );
+}
+
+export function MapIcon({ className = 'h-3.5 w-3.5' }: IconProps) {
+  return (
+    <svg viewBox="0 0 24 24" className={className} {...base}>
+      <path d="M3 7v10l6-3 6 3 6-3V4l-6 3-6-3-6 3Z" />
+      <path d="M9 4v10M15 7v10" />
+    </svg>
+  );
+}

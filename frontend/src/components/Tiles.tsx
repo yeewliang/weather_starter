@@ -1,6 +1,10 @@
-import { CloudIcon, DropletIcon, SunIcon, ThermometerIcon, TrendIcon, WindIcon } from './icons';
+import { useState } from 'react';
+import { MapContainer, TileLayer, Marker } from 'react-leaflet';
+import { CloudIcon, CloudRainIcon, DropletIcon, SunIcon, ThermometerIcon, TrendIcon, WindIcon, MapIcon } from './icons';
 import type { ReactNode } from 'react';
 import type { WeatherSnapshot } from '../types';
+import { useStore } from '../state/store';
+import { MapModal, createWeatherIcon } from './MapModal';
 
 interface WeatherProps {
   weather: WeatherSnapshot;
@@ -73,6 +77,47 @@ function airQualityLabel(psi: number | null | undefined): string {
   if (psi <= 300) return 'Very Unhealthy';
   return 'Hazardous';
 }
+
+function conditionIcon(condition: string | null | undefined) {
+  const text = (condition ?? '').toLowerCase();
+  if (text.includes('thunder') || text.includes('rain') || text.includes('shower')) {
+    return <CloudRainIcon className="h-10 w-10 text-sky-300" />;
+  }
+  if (text.includes('fair') || text.includes('sunny') || text.includes('clear')) {
+    return <SunIcon className="h-10 w-10 text-amber-300" />;
+  }
+  return <CloudIcon className="h-10 w-10 text-white/75" />;
+}
+
+export function ConditionTile({ weather }: WeatherProps) {
+  const condition = weather?.condition ?? null;
+  const area = weather?.area;
+  const validPeriod = weather?.valid_period_text;
+
+  return (
+    <TileShell
+      icon={<CloudIcon className="h-3.5 w-3.5" />}
+      title="Condition"
+      className="col-span-2"
+    >
+      <div className="flex items-center gap-4">
+        {conditionIcon(condition)}
+        <div className="min-w-0 flex-1">
+          <div className="truncate text-2xl font-light leading-tight text-white/95">
+            {condition ?? '--'}
+          </div>
+          {area && (
+            <p className="mt-1.5 text-xs text-white/70">Near {area}</p>
+          )}
+          {validPeriod && (
+            <p className="mt-0.5 text-xs text-white/50">{validPeriod}</p>
+          )}
+        </div>
+      </div>
+    </TileShell>
+  );
+}
+
 
 export function AirQualityTile({ weather }: WeatherProps) {
   const psi = formatNumber(weather?.psi_twenty_four_hourly);
@@ -244,10 +289,68 @@ export function AveragesTile({ weather }: WeatherProps) {
   );
 }
 
+export function MapTile({ weather }: WeatherProps) {
+  const { locations } = useStore();
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  // Empty state when no locations
+  if (locations.length === 0) {
+    return (
+      <TileShell icon={<MapIcon />} title="Map" className="col-span-2">
+        <div className="flex h-40 items-center justify-center">
+          <p className="text-sm text-white/60">Add locations to see them on the map</p>
+        </div>
+      </TileShell>
+    );
+  }
+
+  const center: [number, number] = [locations[0].latitude, locations[0].longitude];
+
+  return (
+    <>
+      <button
+        onClick={() => setIsModalOpen(true)}
+        className="col-span-2 text-left transition-opacity hover:opacity-90"
+        type="button"
+      >
+        <TileShell icon={<MapIcon />} title="Map" className="cursor-pointer">
+          <div className="h-40 overflow-hidden rounded-lg">
+            <MapContainer
+              center={center}
+              zoom={11}
+              scrollWheelZoom={false}
+              dragging={false}
+              zoomControl={false}
+              doubleClickZoom={false}
+              touchZoom={false}
+              className="h-full w-full"
+            >
+              <TileLayer
+                url="https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png"
+                attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>'
+              />
+              {locations.map((location) => (
+                <Marker
+                  key={location.id}
+                  position={[location.latitude, location.longitude]}
+                  icon={createWeatherIcon(location.weather)}
+                />
+              ))}
+            </MapContainer>
+          </div>
+        </TileShell>
+      </button>
+      <MapModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
+    </>
+  );
+}
+
 export function TileGrid({ weather }: WeatherProps) {
   return (
     <div className="grid grid-cols-2 gap-3 lg:grid-cols-4">
+      <ConditionTile weather={weather} />
       <AirQualityTile weather={weather} />
+      <MapTile weather={weather} />
       <WindTile weather={weather} />
       <UVTile weather={weather} />
       <TemperatureTile weather={weather} />
