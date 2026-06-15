@@ -10,12 +10,428 @@ body,
 
 body {
   @apply text-white antialiased;
+  /* Fallback matches the apple theme so there is no flash before JS sets data-theme */
   background:
     radial-gradient(120% 80% at 70% 0%, rgba(255, 255, 255, 0.18) 0%, transparent 55%),
     radial-gradient(90% 70% at 10% 100%, rgba(80, 110, 150, 0.55) 0%, transparent 60%),
     linear-gradient(170deg, #6f8aa8 0%, #5a7591 35%, #4a627c 65%, #3c5066 100%);
   background-attachment: fixed;
   background-repeat: no-repeat;
+}
+
+/* ── Apple ────────────────────────────────────────────── */
+[data-theme='apple'] body {
+  background:
+    radial-gradient(120% 80% at 70% 0%, rgba(255, 255, 255, 0.18) 0%, transparent 55%),
+    radial-gradient(90% 70% at 10% 100%, rgba(80, 110, 150, 0.55) 0%, transparent 60%),
+    linear-gradient(170deg, #6f8aa8 0%, #5a7591 35%, #4a627c 65%, #3c5066 100%);
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+}
+
+/* ── Midnight Cosmos ──────────────────────────────────── */
+[data-theme='midnight'] body {
+  font-family: 'Space Grotesk', system-ui, sans-serif;
+  background:
+    radial-gradient(110% 70% at 85% 0%, rgba(99, 102, 241, 0.28) 0%, transparent 48%),
+    radial-gradient(70% 55% at 5% 100%, rgba(34, 211, 238, 0.14) 0%, transparent 55%),
+    radial-gradient(90% 70% at 5% 0%, rgba(67, 56, 202, 0.35) 0%, transparent 60%),
+    linear-gradient(170deg, #0d0d22 0%, #0a0a1a 40%, #070713 70%, #050510 100%);
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+}
+
+/* Borders */
+[data-theme='midnight'] .border-white\/5  { border-color: rgba(34, 211, 238, 0.07); }
+[data-theme='midnight'] .border-white\/10 { border-color: rgba(34, 211, 238, 0.12); }
+[data-theme='midnight'] .border-white\/15 {
+  border-color: rgba(34, 211, 238, 0.20);
+  box-shadow: 0 0 18px rgba(34, 211, 238, 0.06);
+}
+[data-theme='midnight'] .border-white\/30 { border-color: rgba(34, 211, 238, 0.48); }
+
+/* Card / panel backgrounds */
+[data-theme='midnight'] .bg-black\/20      { background-color: rgba(2,  2,  18, 0.65); }
+[data-theme='midnight'] .bg-white\/\[0\.04\] { background-color: rgba(8,  8,  28, 0.40); }
+[data-theme='midnight'] .bg-white\/\[0\.06\] { background-color: rgba(8,  8,  28, 0.45); }
+[data-theme='midnight'] .bg-white\/\[0\.07\] { background-color: rgba(8,  8,  28, 0.50); }
+[data-theme='midnight'] .bg-white\/\[0\.08\] { background-color: rgba(8,  8,  28, 0.55); }
+[data-theme='midnight'] .bg-white\/\[0\.1\]  { background-color: rgba(8,  8,  28, 0.65); }
+[data-theme='midnight'] .bg-white\/10       { background-color: rgba(8,  8,  28, 0.60); }
+/* Selected card gets a cyan tint */
+[data-theme='midnight'] .bg-white\/20       { background-color: rgba(34, 211, 238, 0.12); }
+
+/* Hover states */
+[data-theme='midnight'] .hover\:bg-white\/\[0\.12\]:hover { background-color: rgba(34, 211, 238, 0.08); }
+[data-theme='midnight'] .hover\:bg-white\/\[0\.14\]:hover { background-color: rgba(34, 211, 238, 0.10); }
+[data-theme='midnight'] .hover\:bg-white\/20:hover        { background-color: rgba(34, 211, 238, 0.16); }
+
+/* Dividers (divide-y / divide-x utilities) */
+[data-theme='midnight'] .divide-white\/5 > :not([hidden]) ~ :not([hidden]) {
+  border-color: rgba(34, 211, 238, 0.07);
+}
+
+/* Scrollbar */
+[data-theme='midnight'] ::-webkit-scrollbar-thumb {
+  background: rgba(34, 211, 238, 0.20);
+}
+
+/* ── Desert Dusk ──────────────────────────────────────── */
+[data-theme='desert'] body {
+  font-family: 'Playfair Display', Georgia, serif;
+  background:
+    radial-gradient(130% 75% at 80% -5%, rgba(245, 158, 11, 0.32) 0%, transparent 50%),
+    radial-gradient(80% 60% at 5% 110%, rgba(190, 70, 40, 0.50) 0%, transparent 55%),
+    radial-gradient(100% 50% at 50% 0%, rgba(220, 110, 50, 0.18) 0%, transparent 45%),
+    linear-gradient(160deg, #5c2a1e 0%, #4a2018 35%, #3b1812 65%, #2c1008 100%);
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+}
+
+/* Borders → warm amber */
+[data-theme='desert'] .border-white\/5  { border-color: rgba(210, 140, 70, 0.10); }
+[data-theme='desert'] .border-white\/10 { border-color: rgba(210, 140, 70, 0.18); }
+[data-theme='desert'] .border-white\/15 {
+  border-color: rgba(210, 140, 70, 0.30);
+  box-shadow: 0 2px 14px rgba(180, 100, 40, 0.12);
+}
+[data-theme='desert'] .border-white\/30 { border-color: rgba(220, 155, 80, 0.55); }
+
+/* Card / panel backgrounds → warm-tinted dark glass */
+[data-theme='desert'] .bg-black\/20        { background-color: rgba(18, 6, 2,   0.60); }
+[data-theme='desert'] .bg-white\/\[0\.04\] { background-color: rgba(255, 180, 100, 0.04); }
+[data-theme='desert'] .bg-white\/\[0\.06\] { background-color: rgba(255, 180, 100, 0.06); }
+[data-theme='desert'] .bg-white\/\[0\.07\] { background-color: rgba(255, 180, 100, 0.07); }
+[data-theme='desert'] .bg-white\/\[0\.08\] { background-color: rgba(255, 180, 100, 0.08); }
+[data-theme='desert'] .bg-white\/\[0\.1\]  { background-color: rgba(255, 180, 100, 0.10); }
+[data-theme='desert'] .bg-white\/10        { background-color: rgba(255, 180, 100, 0.10); }
+/* Selected card → warm amber tint */
+[data-theme='desert'] .bg-white\/20        { background-color: rgba(210, 120, 55, 0.22); }
+
+/* Hover states */
+[data-theme='desert'] .hover\:bg-white\/\[0\.12\]:hover { background-color: rgba(255, 180, 100, 0.13); }
+[data-theme='desert'] .hover\:bg-white\/\[0\.14\]:hover { background-color: rgba(255, 180, 100, 0.15); }
+[data-theme='desert'] .hover\:bg-white\/20:hover        { background-color: rgba(210, 120, 55, 0.24); }
+
+/* Dividers */
+[data-theme='desert'] .divide-white\/5 > :not([hidden]) ~ :not([hidden]) {
+  border-color: rgba(210, 140, 70, 0.10);
+}
+
+/* Scrollbar */
+[data-theme='desert'] ::-webkit-scrollbar-thumb {
+  background: rgba(210, 140, 70, 0.28);
+}
+
+/* ── Neon Forecast ────────────────────────────────────── */
+[data-theme='neon'] body {
+  font-family: 'Orbitron', 'Courier New', monospace;
+  background:
+    radial-gradient(110% 65% at 85% 0%,   rgba(247, 37, 133, 0.28) 0%, transparent 48%),
+    radial-gradient(80%  55% at 8%  105%,  rgba(114, 9,  183, 0.45) 0%, transparent 55%),
+    radial-gradient(60%  40% at 50% 55%,   rgba(76,  0,  153, 0.18) 0%, transparent 50%),
+    linear-gradient(180deg, #060210 0%, #040108 50%, #020106 100%);
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+}
+
+/* Borders → neon pink with glow */
+[data-theme='neon'] .border-white\/5  { border-color: rgba(247, 37, 133, 0.14); }
+[data-theme='neon'] .border-white\/10 { border-color: rgba(247, 37, 133, 0.28); }
+[data-theme='neon'] .border-white\/15 {
+  border-color: rgba(247, 37, 133, 0.55);
+  box-shadow: 0 0 14px rgba(247, 37, 133, 0.22), inset 0 0 10px rgba(247, 37, 133, 0.04);
+}
+[data-theme='neon'] .border-white\/30 {
+  border-color: rgba(247, 37, 133, 0.88);
+  box-shadow: 0 0 20px rgba(247, 37, 133, 0.40), inset 0 0 12px rgba(247, 37, 133, 0.08);
+}
+
+/* Card / panel backgrounds → near-black */
+[data-theme='neon'] .bg-black\/20        { background-color: rgba(3,  0,  12, 0.80); }
+[data-theme='neon'] .bg-white\/\[0\.04\] { background-color: rgba(15, 0,  30, 0.40); }
+[data-theme='neon'] .bg-white\/\[0\.06\] { background-color: rgba(15, 0,  30, 0.50); }
+[data-theme='neon'] .bg-white\/\[0\.07\] { background-color: rgba(15, 0,  30, 0.55); }
+[data-theme='neon'] .bg-white\/\[0\.08\] { background-color: rgba(15, 0,  30, 0.60); }
+[data-theme='neon'] .bg-white\/\[0\.1\]  { background-color: rgba(15, 0,  30, 0.70); }
+[data-theme='neon'] .bg-white\/10        { background-color: rgba(15, 0,  30, 0.65); }
+/* Selected card → vivid pink tint */
+[data-theme='neon'] .bg-white\/20        { background-color: rgba(247, 37, 133, 0.16); }
+
+/* Hover states */
+[data-theme='neon'] .hover\:bg-white\/\[0\.12\]:hover { background-color: rgba(247, 37, 133, 0.10); }
+[data-theme='neon'] .hover\:bg-white\/\[0\.14\]:hover { background-color: rgba(247, 37, 133, 0.12); }
+[data-theme='neon'] .hover\:bg-white\/20:hover        { background-color: rgba(247, 37, 133, 0.20); }
+
+/* Dividers */
+[data-theme='neon'] .divide-white\/5 > :not([hidden]) ~ :not([hidden]) {
+  border-color: rgba(247, 37, 133, 0.12);
+}
+
+/* Focus ring → neon pink */
+[data-theme='neon'] button:focus-visible,
+[data-theme='neon'] input:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(247, 37, 133, 0.55);
+}
+
+/* Scrollbar */
+[data-theme='neon'] ::-webkit-scrollbar-thumb {
+  background: rgba(247, 37, 133, 0.35);
+}
+
+/* ── Arctic Minimal ───────────────────────────────────── */
+[data-theme='arctic'] body {
+  font-family: 'DM Sans', system-ui, sans-serif;
+  color: #1e293b;
+  background:
+    radial-gradient(140% 90% at 70% -5%,  rgba(186, 230, 253, 0.70) 0%, transparent 55%),
+    radial-gradient(100% 60% at 10% 110%, rgba(147, 197, 253, 0.45) 0%, transparent 55%),
+    linear-gradient(170deg, #e0f2fe 0%, #e8f5fd 40%, #eef7fe 70%, #f0f9ff 100%);
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+}
+
+/* Text → charcoal slate at each opacity step */
+[data-theme='arctic'] .text-white     { color: #1e293b; }
+[data-theme='arctic'] .text-white\/95 { color: rgba(30, 41, 59, 0.95); }
+[data-theme='arctic'] .text-white\/90 { color: rgba(30, 41, 59, 0.90); }
+[data-theme='arctic'] .text-white\/85 { color: rgba(30, 41, 59, 0.85); }
+[data-theme='arctic'] .text-white\/80 { color: rgba(30, 41, 59, 0.80); }
+[data-theme='arctic'] .text-white\/75 { color: rgba(30, 41, 59, 0.75); }
+[data-theme='arctic'] .text-white\/70 { color: rgba(30, 41, 59, 0.70); }
+[data-theme='arctic'] .text-white\/65 { color: rgba(30, 41, 59, 0.65); }
+[data-theme='arctic'] .text-white\/60 { color: rgba(30, 41, 59, 0.60); }
+[data-theme='arctic'] .text-white\/55 { color: rgba(30, 41, 59, 0.55); }
+[data-theme='arctic'] .text-white\/50 { color: rgba(30, 41, 59, 0.50); }
+[data-theme='arctic'] .text-white\/45 { color: rgba(30, 41, 59, 0.45); }
+[data-theme='arctic'] .text-white\/40 { color: rgba(30, 41, 59, 0.40); }
+[data-theme='arctic'] .hover\:text-white:hover     { color: #0f172a; }
+[data-theme='arctic'] .hover\:text-white\/90:hover { color: rgba(15, 23, 42, 0.90); }
+
+/* Placeholders */
+[data-theme='arctic'] .placeholder\:text-white\/50::placeholder { color: rgba(30, 41, 59, 0.45); }
+[data-theme='arctic'] .placeholder\:text-white\/40::placeholder { color: rgba(30, 41, 59, 0.38); }
+
+/* Error text (light pink → readable red) */
+[data-theme='arctic'] .text-red-100 { color: #b91c1c; }
+
+/* Borders → hairline slate / sky-blue accent */
+[data-theme='arctic'] .border-white\/5  { border-color: rgba(0, 0, 0, 0.05); }
+[data-theme='arctic'] .border-white\/10 { border-color: rgba(0, 0, 0, 0.08); }
+[data-theme='arctic'] .border-white\/15 {
+  border-color: rgba(0, 0, 0, 0.10);
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06), 0 1px 3px rgba(0, 0, 0, 0.04);
+}
+[data-theme='arctic'] .border-white\/30 { border-color: rgba(14, 165, 233, 0.55); }
+
+/* Error state on light background */
+[data-theme='arctic'] .bg-red-500\/15    { background-color: rgba(239, 68, 68, 0.08); }
+[data-theme='arctic'] .border-red-300\/30 { border-color: rgba(239, 68, 68, 0.28); }
+
+/* Card / panel backgrounds → clean white glass */
+[data-theme='arctic'] .bg-black\/20        { background-color: rgba(224, 244, 255, 0.60); }
+[data-theme='arctic'] .bg-white\/\[0\.04\] { background-color: rgba(255, 255, 255, 0.50); }
+[data-theme='arctic'] .bg-white\/\[0\.06\] { background-color: rgba(255, 255, 255, 0.65); }
+[data-theme='arctic'] .bg-white\/\[0\.07\] { background-color: rgba(255, 255, 255, 0.72); }
+[data-theme='arctic'] .bg-white\/\[0\.08\] { background-color: rgba(255, 255, 255, 0.80); }
+[data-theme='arctic'] .bg-white\/\[0\.1\]  { background-color: rgba(255, 255, 255, 0.88); }
+[data-theme='arctic'] .bg-white\/10        { background-color: rgba(255, 255, 255, 0.85); }
+/* Selected card → sky-blue tint */
+[data-theme='arctic'] .bg-white\/20        { background-color: rgba(14, 165, 233, 0.12); }
+/* Submit button → sky blue (white-on-white would be invisible) */
+[data-theme='arctic'] .bg-white\/90        { background-color: rgba(2, 132, 199, 0.90); }
+[data-theme='arctic'] .hover\:bg-white:hover { background-color: rgb(2, 132, 199); }
+
+/* Hover states */
+[data-theme='arctic'] .hover\:bg-white\/\[0\.12\]:hover { background-color: rgba(255, 255, 255, 0.90); }
+[data-theme='arctic'] .hover\:bg-white\/\[0\.14\]:hover { background-color: rgba(255, 255, 255, 0.92); }
+[data-theme='arctic'] .hover\:bg-white\/20:hover        { background-color: rgba(14, 165, 233, 0.14); }
+
+/* Dividers */
+[data-theme='arctic'] .divide-white\/5 > :not([hidden]) ~ :not([hidden]) {
+  border-color: rgba(0, 0, 0, 0.06);
+}
+
+/* Focus ring → sky blue */
+[data-theme='arctic'] button:focus-visible,
+[data-theme='arctic'] input:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(14, 165, 233, 0.45);
+}
+
+/* Scrollbar */
+[data-theme='arctic'] ::-webkit-scrollbar-thumb {
+  background: rgba(14, 165, 233, 0.30);
+}
+
+/* ── Earthy Forest ────────────────────────────────────── */
+[data-theme='forest'] body {
+  font-family: 'Lora', Georgia, serif;
+  background:
+    radial-gradient(130% 75% at 75% -5%,  rgba(134, 179, 96,  0.22) 0%, transparent 50%),
+    radial-gradient(90%  60% at 5%  110%, rgba(45,  80,  35,  0.60) 0%, transparent 55%),
+    radial-gradient(60%  45% at 50% 55%,  rgba(30,  55,  25,  0.30) 0%, transparent 50%),
+    linear-gradient(165deg, #2a3d28 0%, #213220 35%, #1a2a18 65%, #14220f 100%);
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+}
+
+/* Borders → warm cream */
+[data-theme='forest'] .border-white\/5  { border-color: rgba(210, 200, 160, 0.08); }
+[data-theme='forest'] .border-white\/10 { border-color: rgba(210, 200, 160, 0.14); }
+[data-theme='forest'] .border-white\/15 {
+  border-color: rgba(210, 200, 160, 0.22);
+  box-shadow: 0 2px 10px rgba(10, 30, 8, 0.30);
+}
+[data-theme='forest'] .border-white\/30 { border-color: rgba(160, 210, 120, 0.55); }
+
+/* Card / panel backgrounds → matte dark forest green */
+[data-theme='forest'] .bg-black\/20        { background-color: rgba(12, 22, 10, 0.65); }
+[data-theme='forest'] .bg-white\/\[0\.04\] { background-color: rgba(30, 55, 25, 0.35); }
+[data-theme='forest'] .bg-white\/\[0\.06\] { background-color: rgba(30, 55, 25, 0.45); }
+[data-theme='forest'] .bg-white\/\[0\.07\] { background-color: rgba(30, 55, 25, 0.50); }
+[data-theme='forest'] .bg-white\/\[0\.08\] { background-color: rgba(30, 55, 25, 0.55); }
+[data-theme='forest'] .bg-white\/\[0\.1\]  { background-color: rgba(30, 55, 25, 0.65); }
+[data-theme='forest'] .bg-white\/10        { background-color: rgba(30, 55, 25, 0.60); }
+/* Selected card → fresh moss green */
+[data-theme='forest'] .bg-white\/20        { background-color: rgba(134, 179, 96, 0.20); }
+
+/* Hover states */
+[data-theme='forest'] .hover\:bg-white\/\[0\.12\]:hover { background-color: rgba(134, 179, 96, 0.10); }
+[data-theme='forest'] .hover\:bg-white\/\[0\.14\]:hover { background-color: rgba(134, 179, 96, 0.12); }
+[data-theme='forest'] .hover\:bg-white\/20:hover        { background-color: rgba(134, 179, 96, 0.22); }
+
+/* Dividers */
+[data-theme='forest'] .divide-white\/5 > :not([hidden]) ~ :not([hidden]) {
+  border-color: rgba(210, 200, 160, 0.08);
+}
+
+/* Focus ring → mossy green */
+[data-theme='forest'] button:focus-visible,
+[data-theme='forest'] input:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(134, 179, 96, 0.50);
+}
+
+/* Scrollbar */
+[data-theme='forest'] ::-webkit-scrollbar-thumb {
+  background: rgba(134, 179, 96, 0.30);
+}
+
+/* ── Golden Hour ──────────────────────────────────────── */
+[data-theme='golden'] body {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  background:
+    radial-gradient(130% 75% at 75% -5%,  rgba(212, 175, 55,  0.38) 0%, transparent 50%),
+    radial-gradient(90%  60% at 5%  110%, rgba(180, 100, 15,  0.55) 0%, transparent 55%),
+    radial-gradient(70%  50% at 50% 50%,  rgba(140, 80,  10,  0.20) 0%, transparent 50%),
+    linear-gradient(165deg, #4a2e06 0%, #3c2404 35%, #301c03 65%, #241402 100%);
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+}
+
+/* Borders → gold shimmer */
+[data-theme='golden'] .border-white\/5  { border-color: rgba(212, 175, 55, 0.10); }
+[data-theme='golden'] .border-white\/10 { border-color: rgba(212, 175, 55, 0.18); }
+[data-theme='golden'] .border-white\/15 {
+  border-color: rgba(212, 175, 55, 0.32);
+  box-shadow: 0 2px 16px rgba(140, 90, 5, 0.25), 0 0 0 1px rgba(212, 175, 55, 0.08) inset;
+}
+[data-theme='golden'] .border-white\/30 { border-color: rgba(212, 175, 55, 0.65); }
+
+/* Card / panel backgrounds → translucent amber glass */
+[data-theme='golden'] .bg-black\/20        { background-color: rgba(20, 10, 2,   0.65); }
+[data-theme='golden'] .bg-white\/\[0\.04\] { background-color: rgba(80, 50, 8,   0.35); }
+[data-theme='golden'] .bg-white\/\[0\.06\] { background-color: rgba(80, 50, 8,   0.45); }
+[data-theme='golden'] .bg-white\/\[0\.07\] { background-color: rgba(80, 50, 8,   0.50); }
+[data-theme='golden'] .bg-white\/\[0\.08\] { background-color: rgba(80, 50, 8,   0.55); }
+[data-theme='golden'] .bg-white\/\[0\.1\]  { background-color: rgba(80, 50, 8,   0.65); }
+[data-theme='golden'] .bg-white\/10        { background-color: rgba(80, 50, 8,   0.60); }
+/* Selected card → bright gold wash */
+[data-theme='golden'] .bg-white\/20        { background-color: rgba(212, 175, 55, 0.22); }
+
+/* Hover states */
+[data-theme='golden'] .hover\:bg-white\/\[0\.12\]:hover { background-color: rgba(212, 175, 55, 0.10); }
+[data-theme='golden'] .hover\:bg-white\/\[0\.14\]:hover { background-color: rgba(212, 175, 55, 0.13); }
+[data-theme='golden'] .hover\:bg-white\/20:hover        { background-color: rgba(212, 175, 55, 0.25); }
+
+/* Dividers */
+[data-theme='golden'] .divide-white\/5 > :not([hidden]) ~ :not([hidden]) {
+  border-color: rgba(212, 175, 55, 0.10);
+}
+
+/* Focus ring → gold */
+[data-theme='golden'] button:focus-visible,
+[data-theme='golden'] input:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(212, 175, 55, 0.50);
+}
+
+/* Scrollbar */
+[data-theme='golden'] ::-webkit-scrollbar-thumb {
+  background: rgba(212, 175, 55, 0.30);
+}
+
+/* ── Rainstorm ────────────────────────────────────────── */
+[data-theme='storm'] body {
+  font-family: 'IBM Plex Sans', system-ui, sans-serif;
+  background:
+    radial-gradient(120% 65% at 80% -5%,  rgba(45,  90, 110, 0.50) 0%, transparent 50%),
+    radial-gradient(90%  55% at 5%  110%, rgba(20,  55,  65, 0.70) 0%, transparent 55%),
+    radial-gradient(80%  50% at 45% 55%,  rgba(30,  60,  70, 0.25) 0%, transparent 50%),
+    linear-gradient(170deg, #1a2e35 0%, #14252b 35%, #0f1d22 65%, #0b1518 100%);
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+}
+
+/* Borders → cool teal */
+[data-theme='storm'] .border-white\/5  { border-color: rgba(56, 178, 172, 0.08); }
+[data-theme='storm'] .border-white\/10 { border-color: rgba(56, 178, 172, 0.15); }
+[data-theme='storm'] .border-white\/15 {
+  border-color: rgba(56, 178, 172, 0.24);
+  box-shadow: 0 2px 10px rgba(0, 30, 40, 0.40);
+}
+[data-theme='storm'] .border-white\/30 { border-color: rgba(56, 178, 172, 0.55); }
+
+/* Card / panel backgrounds → dark charcoal-teal glass */
+[data-theme='storm'] .bg-black\/20        { background-color: rgba(5,  15, 20, 0.70); }
+[data-theme='storm'] .bg-white\/\[0\.04\] { background-color: rgba(15, 40, 50, 0.35); }
+[data-theme='storm'] .bg-white\/\[0\.06\] { background-color: rgba(15, 40, 50, 0.45); }
+[data-theme='storm'] .bg-white\/\[0\.07\] { background-color: rgba(15, 40, 50, 0.50); }
+[data-theme='storm'] .bg-white\/\[0\.08\] { background-color: rgba(15, 40, 50, 0.55); }
+[data-theme='storm'] .bg-white\/\[0\.1\]  { background-color: rgba(15, 40, 50, 0.65); }
+[data-theme='storm'] .bg-white\/10        { background-color: rgba(15, 40, 50, 0.60); }
+/* Selected card → teal accent wash */
+[data-theme='storm'] .bg-white\/20        { background-color: rgba(56, 178, 172, 0.16); }
+
+/* Hover states */
+[data-theme='storm'] .hover\:bg-white\/\[0\.12\]:hover { background-color: rgba(56, 178, 172, 0.09); }
+[data-theme='storm'] .hover\:bg-white\/\[0\.14\]:hover { background-color: rgba(56, 178, 172, 0.11); }
+[data-theme='storm'] .hover\:bg-white\/20:hover        { background-color: rgba(56, 178, 172, 0.20); }
+
+/* Teal left-border accent stripe on every card (rounded-2xl panels) */
+[data-theme='storm'] .rounded-2xl {
+  border-radius: 4px;
+  border-left-width: 3px;
+  border-left-color: rgba(56, 178, 172, 0.55) !important;
+}
+
+/* Dividers */
+[data-theme='storm'] .divide-white\/5 > :not([hidden]) ~ :not([hidden]) {
+  border-color: rgba(56, 178, 172, 0.08);
+}
+
+/* Focus ring → teal */
+[data-theme='storm'] button:focus-visible,
+[data-theme='storm'] input:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(56, 178, 172, 0.45);
+}
+
+/* Scrollbar */
+[data-theme='storm'] ::-webkit-scrollbar-thumb {
+  background: rgba(56, 178, 172, 0.28);
 }
 
 button,
