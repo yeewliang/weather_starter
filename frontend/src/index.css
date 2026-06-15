@@ -41,3 +41,53 @@ input:focus-visible {
 ::-webkit-scrollbar-track {
   background: transparent;
 }
+
+/* Map marker styles */
+.weather-marker {
+  background: transparent !important;
+  border: none !important;
+}
+
+.weather-marker-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+}
+
+.weather-label {
+  background: rgba(0, 0, 0, 0.75);
+  -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: blur(12px);
+  border-radius: 8px;
+  padding: 4px 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+  color: white;
+  font-size: 11px;
+  font-weight: 500;
+  white-space: nowrap;
+  margin-bottom: 4px;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.pin-icon {
+  width: 0;
+  height: 0;
+  border-left: 8px solid transparent;
+  border-right: 8px solid transparent;
+  border-top: 14px solid rgba(239, 68, 68, 0.9);
+  border-radius: 2px;
+  position: relative;
+}
+
+.pin-icon::before {
+  content: '';
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  background: rgba(239, 68, 68, 0.9);
+  border-radius: 50%;
+  top: -20px;
+  left: -4px;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+}
