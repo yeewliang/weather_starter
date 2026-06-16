@@ -14,6 +14,8 @@ export const themes: Theme[] = [
   { id: 'forest',   label: 'Earthy Forest',   swatch: '#2d3a2e' },
   { id: 'golden',   label: 'Golden Hour',     swatch: '#c9a84c' },
   { id: 'storm',    label: 'Rainstorm',       swatch: '#2d4a52' },
+  { id: 'pastel',   label: 'Pastel Studio',   swatch: '#c4b5fd' },
+  { id: 'terminal', label: 'Terminal Green',  swatch: '#00ff41' },
 ];
 
 export const defaultThemeId = 'apple';

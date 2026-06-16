@@ -434,6 +434,194 @@ body {
   background: rgba(56, 178, 172, 0.28);
 }
 
+/* ── Pastel Studio ────────────────────────────────────── */
+[data-theme='pastel'] body {
+  font-family: 'Nunito', system-ui, sans-serif;
+  color: #2d2040;
+  background:
+    radial-gradient(140% 80% at 80% -5%,  rgba(196, 181, 253, 0.55) 0%, transparent 52%),
+    radial-gradient(100% 60% at 5%  110%, rgba(251, 207, 232, 0.60) 0%, transparent 55%),
+    radial-gradient(80%  50% at 50% 60%,  rgba(167, 243, 208, 0.25) 0%, transparent 50%),
+    linear-gradient(160deg, #fdf4ff 0%, #faf0ff 40%, #f8f0ff 70%, #f5edff 100%);
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+}
+
+/* Text → deep violet at each opacity step */
+[data-theme='pastel'] .text-white     { color: #2d2040; }
+[data-theme='pastel'] .text-white\/95 { color: rgba(45, 32, 64, 0.95); }
+[data-theme='pastel'] .text-white\/90 { color: rgba(45, 32, 64, 0.90); }
+[data-theme='pastel'] .text-white\/85 { color: rgba(45, 32, 64, 0.85); }
+[data-theme='pastel'] .text-white\/80 { color: rgba(45, 32, 64, 0.80); }
+[data-theme='pastel'] .text-white\/75 { color: rgba(45, 32, 64, 0.75); }
+[data-theme='pastel'] .text-white\/70 { color: rgba(45, 32, 64, 0.70); }
+[data-theme='pastel'] .text-white\/65 { color: rgba(45, 32, 64, 0.65); }
+[data-theme='pastel'] .text-white\/60 { color: rgba(45, 32, 64, 0.60); }
+[data-theme='pastel'] .text-white\/55 { color: rgba(45, 32, 64, 0.55); }
+[data-theme='pastel'] .text-white\/50 { color: rgba(45, 32, 64, 0.50); }
+[data-theme='pastel'] .text-white\/45 { color: rgba(45, 32, 64, 0.45); }
+[data-theme='pastel'] .text-white\/40 { color: rgba(45, 32, 64, 0.40); }
+[data-theme='pastel'] .hover\:text-white:hover     { color: #1a0f30; }
+[data-theme='pastel'] .hover\:text-white\/90:hover { color: rgba(26, 15, 48, 0.90); }
+
+/* Placeholders */
+[data-theme='pastel'] .placeholder\:text-white\/50::placeholder { color: rgba(45, 32, 64, 0.42); }
+[data-theme='pastel'] .placeholder\:text-white\/40::placeholder { color: rgba(45, 32, 64, 0.36); }
+
+/* Error text */
+[data-theme='pastel'] .text-red-100 { color: #9f1239; }
+
+/* Borders → soft lilac */
+[data-theme='pastel'] .border-white\/5  { border-color: rgba(139, 92, 246, 0.08); }
+[data-theme='pastel'] .border-white\/10 { border-color: rgba(139, 92, 246, 0.14); }
+[data-theme='pastel'] .border-white\/15 {
+  border-color: rgba(139, 92, 246, 0.22);
+  box-shadow: 0 2px 14px rgba(139, 92, 246, 0.08), 0 1px 4px rgba(0, 0, 0, 0.04);
+}
+[data-theme='pastel'] .border-white\/30 { border-color: rgba(139, 92, 246, 0.50); }
+
+/* Error state */
+[data-theme='pastel'] .bg-red-500\/15    { background-color: rgba(244, 63, 94, 0.08); }
+[data-theme='pastel'] .border-red-300\/30 { border-color: rgba(244, 63, 94, 0.30); }
+
+/* Card / panel backgrounds → pastel-tinted white */
+[data-theme='pastel'] .bg-black\/20        { background-color: rgba(245, 237, 255, 0.65); }
+[data-theme='pastel'] .bg-white\/\[0\.04\] { background-color: rgba(255, 255, 255, 0.55); }
+[data-theme='pastel'] .bg-white\/\[0\.06\] { background-color: rgba(255, 255, 255, 0.68); }
+[data-theme='pastel'] .bg-white\/\[0\.07\] { background-color: rgba(255, 255, 255, 0.74); }
+[data-theme='pastel'] .bg-white\/\[0\.08\] { background-color: rgba(255, 255, 255, 0.80); }
+[data-theme='pastel'] .bg-white\/\[0\.1\]  { background-color: rgba(255, 255, 255, 0.88); }
+[data-theme='pastel'] .bg-white\/10        { background-color: rgba(255, 255, 255, 0.85); }
+/* Selected card → lilac tint */
+[data-theme='pastel'] .bg-white\/20        { background-color: rgba(139, 92, 246, 0.12); }
+/* Submit button → violet */
+[data-theme='pastel'] .bg-white\/90        { background-color: rgba(124, 58, 237, 0.90); }
+[data-theme='pastel'] .hover\:bg-white:hover { background-color: rgb(109, 40, 217); }
+
+/* Hover states */
+[data-theme='pastel'] .hover\:bg-white\/\[0\.12\]:hover { background-color: rgba(255, 255, 255, 0.90); }
+[data-theme='pastel'] .hover\:bg-white\/\[0\.14\]:hover { background-color: rgba(255, 255, 255, 0.92); }
+[data-theme='pastel'] .hover\:bg-white\/20:hover        { background-color: rgba(139, 92, 246, 0.15); }
+
+/* Dividers */
+[data-theme='pastel'] .divide-white\/5 > :not([hidden]) ~ :not([hidden]) {
+  border-color: rgba(139, 92, 246, 0.08);
+}
+
+/* Focus ring → lilac */
+[data-theme='pastel'] button:focus-visible,
+[data-theme='pastel'] input:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(139, 92, 246, 0.40);
+}
+
+/* Scrollbar */
+[data-theme='pastel'] ::-webkit-scrollbar-thumb {
+  background: rgba(139, 92, 246, 0.25);
+}
+
+/* ── Terminal Green ───────────────────────────────────── */
+[data-theme='terminal'] body {
+  font-family: 'Fira Code', 'Courier New', monospace;
+  color: #00ff41;
+  background:
+    /* Scanline overlay */
+    repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 2px,
+      rgba(0, 255, 65, 0.015) 2px,
+      rgba(0, 255, 65, 0.015) 4px
+    ),
+    /* Phosphor bloom */
+    radial-gradient(70% 50% at 50% 50%, rgba(0, 255, 65, 0.06) 0%, transparent 70%),
+    /* Pure black base */
+    #000000;
+  background-attachment: fixed;
+  background-repeat: no-repeat, no-repeat, no-repeat;
+}
+
+/* Borders → phosphor green */
+[data-theme='terminal'] .border-white\/5  { border-color: rgba(0, 255, 65, 0.08); }
+[data-theme='terminal'] .border-white\/10 { border-color: rgba(0, 255, 65, 0.16); }
+[data-theme='terminal'] .border-white\/15 {
+  border-color: rgba(0, 255, 65, 0.30);
+  box-shadow: 0 0 8px rgba(0, 255, 65, 0.10), inset 0 0 4px rgba(0, 255, 65, 0.04);
+}
+[data-theme='terminal'] .border-white\/30 { border-color: rgba(0, 255, 65, 0.55); }
+
+/* Card / panel backgrounds → near-black with green tint */
+[data-theme='terminal'] .bg-black\/20        { background-color: rgba(0, 10, 4, 0.85); }
+[data-theme='terminal'] .bg-white\/\[0\.04\] { background-color: rgba(0, 20, 8, 0.60); }
+[data-theme='terminal'] .bg-white\/\[0\.06\] { background-color: rgba(0, 20, 8, 0.70); }
+[data-theme='terminal'] .bg-white\/\[0\.07\] { background-color: rgba(0, 20, 8, 0.75); }
+[data-theme='terminal'] .bg-white\/\[0\.08\] { background-color: rgba(0, 20, 8, 0.80); }
+[data-theme='terminal'] .bg-white\/\[0\.1\]  { background-color: rgba(0, 20, 8, 0.88); }
+[data-theme='terminal'] .bg-white\/10        { background-color: rgba(0, 20, 8, 0.82); }
+/* Selected card → phosphor wash */
+[data-theme='terminal'] .bg-white\/20        { background-color: rgba(0, 255, 65, 0.10); }
+/* Submit button → green */
+[data-theme='terminal'] .bg-white\/90        { background-color: rgba(0, 200, 50, 0.90); }
+[data-theme='terminal'] .hover\:bg-white:hover { background-color: rgb(0, 180, 40); }
+
+/* Hover states */
+[data-theme='terminal'] .hover\:bg-white\/\[0\.12\]:hover { background-color: rgba(0, 255, 65, 0.08); }
+[data-theme='terminal'] .hover\:bg-white\/\[0\.14\]:hover { background-color: rgba(0, 255, 65, 0.10); }
+[data-theme='terminal'] .hover\:bg-white\/20:hover        { background-color: rgba(0, 255, 65, 0.14); }
+
+/* Sharp corners on all cards — zero border-radius */
+[data-theme='terminal'] .rounded-2xl {
+  border-radius: 0;
+  border: 1px solid rgba(0, 255, 65, 0.30);
+}
+
+/* Green-tinted text at each opacity step */
+[data-theme='terminal'] .text-white     { color: #00ff41; }
+[data-theme='terminal'] .text-white\/95 { color: rgba(0, 255, 65, 0.95); }
+[data-theme='terminal'] .text-white\/90 { color: rgba(0, 255, 65, 0.90); }
+[data-theme='terminal'] .text-white\/85 { color: rgba(0, 255, 65, 0.85); }
+[data-theme='terminal'] .text-white\/80 { color: rgba(0, 255, 65, 0.80); }
+[data-theme='terminal'] .text-white\/75 { color: rgba(0, 255, 65, 0.75); }
+[data-theme='terminal'] .text-white\/70 { color: rgba(0, 255, 65, 0.70); }
+[data-theme='terminal'] .text-white\/65 { color: rgba(0, 255, 65, 0.65); }
+[data-theme='terminal'] .text-white\/60 { color: rgba(0, 255, 65, 0.60); }
+[data-theme='terminal'] .text-white\/55 { color: rgba(0, 255, 65, 0.55); }
+[data-theme='terminal'] .text-white\/50 { color: rgba(0, 255, 65, 0.50); }
+[data-theme='terminal'] .text-white\/45 { color: rgba(0, 255, 65, 0.45); }
+[data-theme='terminal'] .text-white\/40 { color: rgba(0, 255, 65, 0.40); }
+[data-theme='terminal'] .hover\:text-white:hover     { color: #00ff41; }
+[data-theme='terminal'] .hover\:text-white\/90:hover { color: rgba(0, 255, 65, 0.90); }
+
+/* Placeholders */
+[data-theme='terminal'] .placeholder\:text-white\/50::placeholder { color: rgba(0, 255, 65, 0.38); }
+[data-theme='terminal'] .placeholder\:text-white\/40::placeholder { color: rgba(0, 255, 65, 0.30); }
+
+/* Submit button text → black on green */
+[data-theme='terminal'] .bg-white\/90 .text-white,
+[data-theme='terminal'] .bg-white\/90 { color: #000; }
+
+/* Error text → bright red (high contrast on black) */
+[data-theme='terminal'] .text-red-100 { color: #ff4444; }
+[data-theme='terminal'] .bg-red-500\/15    { background-color: rgba(255, 68, 68, 0.10); }
+[data-theme='terminal'] .border-red-300\/30 { border-color: rgba(255, 68, 68, 0.35); }
+
+/* Dividers */
+[data-theme='terminal'] .divide-white\/5 > :not([hidden]) ~ :not([hidden]) {
+  border-color: rgba(0, 255, 65, 0.10);
+}
+
+/* Focus ring → phosphor green */
+[data-theme='terminal'] button:focus-visible,
+[data-theme='terminal'] input:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(0, 255, 65, 0.55);
+}
+
+/* Scrollbar */
+[data-theme='terminal'] ::-webkit-scrollbar-thumb {
+  background: rgba(0, 255, 65, 0.25);
+}
+
 button,
 input {
   @apply transition;
