@@ -13,7 +13,7 @@ const ThemeContext = createContext<ThemeContextValue | null>(null);
 
 export function ThemeProvider({ children }: { children: ReactNode }) {
   const [themeId, setThemeIdState] = useState<string>(
-    () => localStorage.getItem(LS_KEY) ?? defaultThemeId,
+    () => localStorage.getItem(LS_KEY) ?? defaultThemeId
   );
 
   useEffect(() => {
@@ -25,11 +25,7 @@ export function ThemeProvider({ children }: { children: ReactNode }) {
     setThemeIdState(id);
   }, []);
 
-  return (
-    <ThemeContext.Provider value={{ themeId, setThemeId }}>
-      {children}
-    </ThemeContext.Provider>
-  );
+  return <ThemeContext.Provider value={{ themeId, setThemeId }}>{children}</ThemeContext.Provider>;
 }
 
 export function useTheme() {

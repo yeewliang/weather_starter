@@ -12,10 +12,12 @@ All test files match `backend/src/**/*.test.ts`.
 
 ```ts
 const app = await createApp({
-  serveFrontend: false,       // skip Vite middleware
+  serveFrontend: false, // skip Vite middleware
   enableRequestLogging: false, // suppress pino-http output
   weatherClient: {
-    async getCurrentWeather() { return myFixtureSnapshot; },
+    async getCurrentWeather() {
+      return myFixtureSnapshot;
+    },
   },
 });
 ```

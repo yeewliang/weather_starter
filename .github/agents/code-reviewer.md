@@ -1,7 +1,7 @@
 ---
 name: code-reviewer
 description: Expert code review assistant for correctness, performance, security, and style.
-tools: ["read", "search/codebase"]
+tools: ['read', 'search/codebase']
 model: gpt-5.1
 ---
 

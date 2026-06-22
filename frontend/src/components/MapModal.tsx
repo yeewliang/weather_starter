@@ -91,10 +91,7 @@ export function MapModal({ isOpen, onClose }: MapModalProps) {
       className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 backdrop-blur-sm animate-in fade-in duration-200"
       onClick={onClose}
     >
-      <div
-        className="relative h-full w-full"
-        onClick={(e) => e.stopPropagation()}
-      >
+      <div className="relative h-full w-full" onClick={(e) => e.stopPropagation()}>
         <button
           onClick={onClose}
           className="absolute right-4 top-4 z-[1000] flex h-10 w-10 items-center justify-center rounded-full border border-white/20 bg-black/60 backdrop-blur-xl transition-colors hover:bg-black/80"

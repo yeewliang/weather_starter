@@ -52,7 +52,7 @@ export function createLocationsRouter(options: LocationsRouterOptions = {}): Rou
       try {
         const snapshot = await weatherClient.getCurrentWeather(
           location.latitude,
-          location.longitude,
+          location.longitude
         );
         const updated = await updateWeather(location.id, snapshot);
         response.status(201).json(updated ?? location);
@@ -60,7 +60,7 @@ export function createLocationsRouter(options: LocationsRouterOptions = {}): Rou
         if (!(error instanceof WeatherProviderError)) throw error;
         logger.warn(
           { err: error, locationId: location.id },
-          'weather refresh failed after location create',
+          'weather refresh failed after location create'
         );
         response.status(201).json(location);
       }
