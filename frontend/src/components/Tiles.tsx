@@ -1,6 +1,15 @@
 import { useState } from 'react';
 import { MapContainer, TileLayer, Marker } from 'react-leaflet';
-import { CloudIcon, CloudRainIcon, DropletIcon, SunIcon, ThermometerIcon, TrendIcon, WindIcon, MapIcon } from './icons';
+import {
+  CloudIcon,
+  CloudRainIcon,
+  DropletIcon,
+  SunIcon,
+  ThermometerIcon,
+  TrendIcon,
+  WindIcon,
+  MapIcon,
+} from './icons';
 import type { ReactNode } from 'react';
 import type { WeatherSnapshot } from '../types';
 import { useStore } from '../state/store';
@@ -106,18 +115,13 @@ export function ConditionTile({ weather }: WeatherProps) {
           <div className="truncate text-2xl font-light leading-tight text-white/95">
             {condition ?? '--'}
           </div>
-          {area && (
-            <p className="mt-1.5 text-xs text-white/70">Near {area}</p>
-          )}
-          {validPeriod && (
-            <p className="mt-0.5 text-xs text-white/50">{validPeriod}</p>
-          )}
+          {area && <p className="mt-1.5 text-xs text-white/70">Near {area}</p>}
+          {validPeriod && <p className="mt-0.5 text-xs text-white/50">{validPeriod}</p>}
         </div>
       </div>
     </TileShell>
   );
 }
-
 
 export function AirQualityTile({ weather }: WeatherProps) {
   const psi = formatNumber(weather?.psi_twenty_four_hourly);

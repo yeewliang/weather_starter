@@ -15,20 +15,21 @@ Express and Vite share one process. The frontend uses relative `/api` paths — 
 
 ## Key files (`backend/src/`)
 
-| File | Role |
-|---|---|
-| `server.ts` | `createApp(options)` factory — wires Express, Pino HTTP logging, and Vite middleware |
-| `routes/locations.ts` | All location CRUD + refresh endpoints; exports `WeatherClient` interface |
-| `weather.ts` | `SingaporeWeatherClient` — external API client |
-| `schema.ts` | Drizzle table definition |
-| `db.ts` | SQLite connection, auto-migration on import, typed CRUD helpers |
-| `logger.ts` | Pino logger instance |
+| File                  | Role                                                                                 |
+| --------------------- | ------------------------------------------------------------------------------------ |
+| `server.ts`           | `createApp(options)` factory — wires Express, Pino HTTP logging, and Vite middleware |
+| `routes/locations.ts` | All location CRUD + refresh endpoints; exports `WeatherClient` interface             |
+| `weather.ts`          | `SingaporeWeatherClient` — external API client                                       |
+| `schema.ts`           | Drizzle table definition                                                             |
+| `db.ts`               | SQLite connection, auto-migration on import, typed CRUD helpers                      |
+| `logger.ts`           | Pino logger instance                                                                 |
 
 ## Weather client
 
 `SingaporeWeatherClient.getCurrentWeather(lat, lon)` fires **10 parallel requests** via `Promise.allSettled`. Partial failures are tolerated — failed readings return `null` fields on the snapshot rather than throwing.
 
 **Two base URLs:**
+
 - Most endpoints: `https://api-open.data.gov.sg` (v2, JSON `data.items` shape)
 - 4-day forecast: `https://api.data.gov.sg` (v1, JSON `items` shape — different nesting)
 
@@ -38,10 +39,10 @@ Express and Vite share one process. The frontend uses relative `/api` paths — 
 
 `WeatherProviderError` is the typed class for all external API failures.
 
-| Endpoint | On `WeatherProviderError` |
-|---|---|
-| `POST /api/locations` | Logs a warning, still returns `201` with placeholder snapshot |
-| `POST /api/locations/:id/refresh` | Returns `502` |
+| Endpoint                          | On `WeatherProviderError`                                     |
+| --------------------------------- | ------------------------------------------------------------- |
+| `POST /api/locations`             | Logs a warning, still returns `201` with placeholder snapshot |
+| `POST /api/locations/:id/refresh` | Returns `502`                                                 |
 
 Duplicate coordinates throw an `Error` with `name === 'DuplicateLocationError'` → `409`.
 

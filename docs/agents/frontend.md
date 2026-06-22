@@ -21,10 +21,10 @@ App
 
 All server state lives in a single `StoreContext` (`frontend/src/state/store.tsx`). Components never call `api.ts` directly — they use hooks:
 
-| Hook | Returns |
-|---|---|
-| `useStore()` | Full store: locations, selectedId, loading flags, actions |
-| `useSelectedLocation()` | The currently selected `Location` object or `null` |
+| Hook                    | Returns                                                   |
+| ----------------------- | --------------------------------------------------------- |
+| `useStore()`            | Full store: locations, selectedId, loading flags, actions |
+| `useSelectedLocation()` | The currently selected `Location` object or `null`        |
 
 Actions available on the store: `create`, `delete`, `refresh`, `select`, `setAdding`.
 

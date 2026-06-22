@@ -15,6 +15,7 @@ npm run doctor       # Smoke-test /health and /api/locations
 ```
 
 Run a single test file:
+
 ```bash
 npx vitest run backend/src/routes/locations.test.ts
 ```

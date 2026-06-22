@@ -1,0 +1,7 @@
+node_modules/
+dist/
+.vite/
+backend/migrations/
+backend/*.db
+docs/dist/
+docs/.astro/
